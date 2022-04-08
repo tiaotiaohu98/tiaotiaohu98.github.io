@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <svg width="100%" height="100%" viewBox="0 0 508 506" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+          
+      </defs>
+      <g id="🍊正文区1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="icon/状态/日历/purple" transform="translate(0.000000, 2.000000)">
+          <path d="M504,448.085714 C504,479.47619 479.390625,504 447.890625,504 L56.109375,504 C24.609375,504 0,479.47619 0,448.085714 L0,127.314286 C0,107.04127 0,87.9365079 0,70 L504,70 C504,87.9365079 504,107.04127 504,127.314286 L504,448.085714 Z" id="路径" fill="#EFEFEF" fill-rule="nonzero"></path>
+              <text id="0%" fill-rule="nonzero" mask="url(#mask-2)" font-family="-apple-system, BlinkMacSystemFont, 'Noto Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 微软雅黑, sans-serif, 'Segoe UI', Roboto, 'Helvetica Neue', Arial" font-size="250.142857" font-weight="400"  x="256" y="380.428571" line-spacing="237.714286" fill="#66757F" style="text-anchor: middle">
+              一
+              </text>
+              <path d="M476.4375,0 L430.171875,0 L27.5625,0 C12.796875,0 0,11.8976351 0,25.6256757 L0,75 L504,75 L504,25.6256757 C504,11.8976351 491.203125,0 476.4375,0 Z" id="路径" fill="#dbad6a" fill-rule="nonzero"></path>
+              
+          </g>
+      </g>
+  </svg>
