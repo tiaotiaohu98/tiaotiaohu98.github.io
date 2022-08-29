@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>tiaotiaohuの98 | tiaotiaohuの98</title><meta name="author" content="tiaotiaohu"><meta name="copyright" content="tiaotiaohu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="线性表 - wolai 笔记线性结构二元组：唯一前驱，唯一后继；前驱后继关系具有反对称性和传递性按复杂程度：简单：线性表(数组，链表)，栈，队列，散列表复杂：广义表，多维数组，文件按访问方式：直接访问：顺序访问：目录索引：线性表的逻辑结构线性表的存储结构线性表运算建立线性表清除线性表增删改元素排序检索顺序表1、定长的一维数组存储结构2、特性：元素类型相同顺序存储，有唯一索引定长3、读写方便，随机">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tiaotiaohuの98">
+<meta property="og:url" content="https://tiaotiaohu98.github.io/tiaotiaohu%E3%81%AE98/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8.html">
+<meta property="og:site_name" content="tiaotiaohuの98">
+<meta property="og:description" content="线性表 - wolai 笔记线性结构二元组：唯一前驱，唯一后继；前驱后继关系具有反对称性和传递性按复杂程度：简单：线性表(数组，链表)，栈，队列，散列表复杂：广义表，多维数组，文件按访问方式：直接访问：顺序访问：目录索引：线性表的逻辑结构线性表的存储结构线性表运算建立线性表清除线性表增删改元素排序检索顺序表1、定长的一维数组存储结构2、特性：元素类型相同顺序存储，有唯一索引定长3、读写方便，随机">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-04-09T03:50:23.725Z">
+<meta property="article:modified_time" content="2022-04-08T03:42:14.000Z">
+<meta property="article:author" content="tiaotiaohu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://tiaotiaohu98.github.io/tiaotiaohu%E3%81%AE98/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"Author: tiaotiaohu","link":"Link: ","source":"Source: tiaotiaohuの98","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'tiaotiaohuの98',
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-08 11:42:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">目录</div><div class="length-num">1</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/tiaotiaohu%E3%81%AE98/tiaotiaohu%E3%81%AE98"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">tiaotiaohuの98</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/tiaotiaohu%E3%81%AE98/tiaotiaohu%E3%81%AE98"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="page"><h1 class="page-title"></h1><div id="article-container"><!DOCTYPE html>
+<html lang="zh-Hans-CN"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=Edge"/><link rel="stylesheet" type="text/css" href="../../../css/modern-norm.min.css"/><link rel="stylesheet" type="text/css" href="../../../css/prism.min.css"/><link rel="stylesheet" type="text/css" href="../../../css/katex.min.css"/><link rel="stylesheet" type="text/css" href="../../../css/wolai.css"/><title>线性表 - wolai 笔记</title><link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 800 800&apos;%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23fff;%7D%3C/style%3E%3C/defs%3E%3Cg%3E%3Cpath class=&apos;cls-1&apos; d=&apos;M610.08,0c66,0,90,6.88,114.13,19.79a134.62,134.62,0,0,1,56,56l2.28,4.4C793.93,103,800,127.88,800,189.92V610.08l-.08,11.56c-.78,57.38-7.58,79.89-19.71,102.57a134.62,134.62,0,0,1-56,56l-4.4,2.28C697,793.93,672.12,800,610.08,800H189.92l-11.56-.08c-57.38-.78-79.89-7.58-102.57-19.71a134.62,134.62,0,0,1-56-56l-2.28-4.4C6.44,697.75.4,673.72,0,616L0,189.92c0-66,6.88-90,19.79-114.13a134.62,134.62,0,0,1,56-56l4.4-2.28C102.25,6.44,126.28.4,184,0Z&apos;/%3E%3Cpath d=&apos;M610.08,0c66,0,90,6.88,114.13,19.79a134.62,134.62,0,0,1,56,56l2.28,4.4C793.93,103,800,127.88,800,189.92V610.08l-.08,11.56c-.78,57.38-7.58,79.89-19.71,102.57a134.62,134.62,0,0,1-56,56l-4.4,2.28C697,793.93,672.12,800,610.08,800H189.92l-11.56-.08c-57.38-.78-79.89-7.58-102.57-19.71a134.62,134.62,0,0,1-56-56l-2.28-4.4C6.44,697.75.4,673.72,0,616L0,189.92c0-66,6.88-90,19.79-114.13a134.62,134.62,0,0,1,56-56l4.4-2.28C102.25,6.44,126.28.4,184,0Zm4.72,88.9H185.2L172.42,89c-32.78.62-43.68,3.24-54.71,9.14a45.84,45.84,0,0,0-19.54,19.54c-6.61,12.36-9.11,24.55-9.27,67.49V614.8L89,627.58c.62,32.78,3.24,43.68,9.14,54.71a45.84,45.84,0,0,0,19.54,19.54c12.36,6.61,24.55,9.11,67.49,9.27H610.08c46.79,0,59.41-2.44,72.21-9.28a45.84,45.84,0,0,0,19.54-19.54c6.61-12.36,9.11-24.55,9.27-67.49V189.92c0-46.79-2.44-59.41-9.28-72.21a45.84,45.84,0,0,0-19.54-19.54C669.93,91.56,657.74,89.06,614.8,88.9ZM233.33,493.33A73.34,73.34,0,1,1,160,566.67,73.35,73.35,0,0,1,233.33,493.33Z&apos;/%3E%3C/g%3E%3C/svg%3E"></link></head><body class="full-width"><header><div class="image has" style="background-position-y: 50%; background-image: url(&quot;https://cdn.wostatic.cn/cover/painting/mU6fqtrt9nYPoVG8VR5ozG.jpg&quot;)"></div><div class="title"><div class="banner"><div data-symbol="👂" class="icon"></div></div><div data-title="线性表" class="main-title"></div></div></header><article><details class="wolai-block"><summary><div class="marker"></div><span class="inline-wrap">线性结构</span></summary><details class="wolai-block"><summary><div class="marker placeholder"></div><span class="inline-wrap">二元组：唯一前驱，唯一后继；前驱后继关系具有反对称性和传递性</span></summary></details><details class="wolai-block"><summary><div class="marker"></div><span class="inline-wrap">按复杂程度：</span></summary><details class="wolai-block"><summary><div class="marker placeholder"></div><span class="inline-wrap">简单：线性表(数组，链表)，栈，队列，散列表</span></summary></details><details class="wolai-block"><summary><div class="marker placeholder"></div><span class="inline-wrap">复杂：广义表，多维数组，文件</span></summary></details></details><details class="wolai-block"><summary><div class="marker"></div><span class="inline-wrap">按访问方式：</span></summary><details class="wolai-block"><summary><div class="marker placeholder"></div><span class="inline-wrap">直接访问：</span></summary></details><details class="wolai-block"><summary><div class="marker placeholder"></div><span class="inline-wrap">顺序访问：</span></summary></details><details class="wolai-block"><summary><div class="marker placeholder"></div><span class="inline-wrap">目录索引：</span></summary></details></details></details><details class="wolai-block"><summary><div class="marker placeholder"></div><span class="inline-wrap">线性表的逻辑结构</span></summary></details><details class="wolai-block"><summary><div class="marker placeholder"></div><span class="inline-wrap">线性表的存储结构</span></summary></details><details class="wolai-block"><summary><div class="marker"></div><span class="inline-wrap">线性表运算</span></summary><ol class="wolai-block"><li><div class="marker"></div><span class="inline-wrap">建立线性表</span></li><li><div class="marker"></div><span class="inline-wrap">清除线性表</span></li><li><div class="marker"></div><span class="inline-wrap">增删改元素</span></li><li><div class="marker"></div><span class="inline-wrap">排序</span></li><li><div class="marker"></div><span class="inline-wrap">检索</span></li></ol></details><h3 class="wolai-block"><span class="inline-wrap">顺序表</span><div class="wolai-block wolai-text"><div><span class="inline-wrap">1、定长的一维数组存储结构</span></div></div><div class="wolai-block wolai-text"><div><span class="inline-wrap">2、特性：</span></div><ul class="wolai-block"><li><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">元素类型相同</span></li><li><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">顺序存储，有唯一索引</span></li><li><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">定长</span></li></ul></div><div class="wolai-block wolai-text"><div><span class="inline-wrap">3、读写方便，随机存取</span></div></div><div class="wolai-block wolai-text"><div><span class="inline-wrap">4、元素地址计算：loc(ki)=Loc(k0)+<span class="jill"></span>数组元素长度<span class="jill"></span>c*i</span></div></div><div class="wolai-block wolai-text"><div><span class="inline-wrap">5、运算：</span></div><code-block class="wolai-block"><div class="wolai-pre"><div data-lang="C++" class="marker"></div><pre><span class="token keyword">class</span> <span class="token class-name">arrList</span> <span class="token operator">:</span> <span class="token keyword">public</span> <span class="token maybe-class-name">List</span><span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span> <span class="token punctuation">{</span>   <span class="token comment">//顺序表 ，向量</span>
+  <span class="token keyword">private</span><span class="token operator">:</span>                         <span class="token comment">//取值类型，取值空间</span>
+    <span class="token constant">T</span> <span class="token operator">*</span> aList<span class="token punctuation">;</span>                     <span class="token comment">//连续内存</span>
+    int maxSize<span class="token punctuation">;</span>                   <span class="token comment">//内存最大长度</span>
+    int curLen<span class="token punctuation">;</span>                    <span class="token comment">//当前长度（已用的内存）</span>
+    int position<span class="token punctuation">;</span>                  <span class="token comment">//当前处理位置</span>
+  <span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">arrList</span><span class="token punctuation">(</span><span class="token parameter"><span class="token keyword">const</span> int size</span><span class="token punctuation">)</span><span class="token punctuation">{</span>       <span class="token comment">//创建新表，设置内存大小</span>
+      maxSize <span class="token operator">=</span> size<span class="token punctuation">;</span>
+      aList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">T</span><span class="token punctuation">[</span>maxSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      curLen <span class="token operator">=</span> position <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token operator">~</span><span class="token function">arrList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                    <span class="token comment">// 析构函数，消除该表实例</span>
+      <span class="token keyword">delete</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> aList<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                  <span class="token comment">//清楚表中存储的内容，使其成为空表</span>
+      <span class="token keyword">delete</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> aList<span class="token punctuation">;</span>
+      curLen<span class="token operator">=</span>position<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+      aList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">T</span><span class="token punctuation">[</span>maxSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    int <span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                   <span class="token comment">//返回当前实际长度</span>
+    bool <span class="token function">append</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token constant">T</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//在表尾添加元素</span>
+    bool <span class="token function">insert</span><span class="token punctuation">(</span><span class="token keyword">const</span> int p<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token constant">T</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">//插入元素</span>
+    bool <span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token keyword">const</span> int p<span class="token punctuation">)</span><span class="token punctuation">;</span>                     <span class="token comment">//删除位置p 上的元素</span>
+    bool <span class="token function">setValue</span><span class="token punctuation">(</span><span class="token keyword">const</span> int p<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token constant">T</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 设置元素值</span>
+    bool <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token keyword">const</span> int p<span class="token punctuation">,</span> <span class="token constant">T</span><span class="token operator">&amp;</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">//返回元素</span>
+    bool <span class="token function">getPos</span><span class="token punctuation">(</span>int <span class="token operator">&amp;</span>p<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token constant">T</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">//查找元素</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//插入元素</span>
+template <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">></span> bool arrList<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token parameter"><span class="token keyword">const</span> int p<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token constant">T</span> value</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  int i<span class="token punctuation">;</span>
+  <span class="token keyword control-flow">if</span><span class="token punctuation">(</span>curLen <span class="token operator">>=</span> maxSize<span class="token punctuation">)</span>     <span class="token comment">//判断列表是否已满</span>
+  <span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span> <span class="token string">"The list is overflow"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword control-flow">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">if</span><span class="token punctuation">(</span>p<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">||</span> p<span class="token operator">></span>curLen<span class="token punctuation">)</span><span class="token punctuation">{</span>     <span class="token comment">//判断插入位置是否合适</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Insertion point is illegal"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword control-flow">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span>curLen<span class="token punctuation">;</span>i<span class="token operator">></span>p<span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>   
+    aList<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span>aList<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment">//从表尾curLen-1开始往右移动到p</span>
+    aList<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token operator">=</span>value<span class="token punctuation">;</span>       <span class="token comment">//位置p插入新元素 </span>
+  <span class="token punctuation">}</span> 
+  curLen<span class="token operator">++</span><span class="token punctuation">;</span>              <span class="token comment">//表的实际长度+1</span>
+  <span class="token keyword control-flow">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//删除元素</span>
+template <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">></span> bool arrList<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token parameter"><span class="token keyword">const</span> int p</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  int i<span class="token punctuation">;</span>
+  <span class="token keyword control-flow">if</span><span class="token punctuation">(</span>curLen <span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>           <span class="token comment">//判断列表是否为空</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">""</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword control-flow">return</span> flase<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">if</span><span class="token punctuation">(</span>p<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">||</span> p<span class="token operator">></span>curLen<span class="token punctuation">)</span><span class="token punctuation">{</span>     <span class="token comment">//判断删除位置是否合适</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Insertion point is illegal"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword control-flow">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token keyword control-flow">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span>p<span class="token punctuation">;</span>i<span class="token operator">&lt;</span>curLen<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment">//从p左移直到curLen</span>
+    aList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>aList<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> 
+  curLen<span class="token operator">--</span><span class="token punctuation">;</span>                <span class="token comment">//表的实际长度减1</span>
+  <span class="token keyword control-flow">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//修改元素</span>
+
+</pre></div></code-block></div></h3><div class="wolai-block wolai-text"><div></div></div></article><footer></footer></body></html></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">tiaotiaohu</div><div class="author-info__description">跳跳虎的酒吧</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tiaotiaohu98/"><i class="fab fa-github"></i><span>我的 Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">跳跳虎的个人博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">顺序表1、定长的一维数组存储结构2、特性：元素类型相同顺序存储，有唯一索引定长3、读写方便，随机存取4、元素地址计算：loc(ki)&#x3D;Loc(k0)+数组元素长度c*i5、运算：class arrList : public List&lt;T&gt; {   &#x2F;&#x2F;顺序表 ，向量
+  private:                         &#x2F;&#x2F;取值类型，取值空间
+    T * aList;                     &#x2F;&#x2F;连续内存
+    int maxSize;                   &#x2F;&#x2F;内存最大长度
+    int curLen;                    &#x2F;&#x2F;当前长度（已用的内存）
+    int position;                  &#x2F;&#x2F;当前处理位置
+  public:
+    arrList(const int size){       &#x2F;&#x2F;创建新表，设置内存大小
+      maxSize &#x3D; size;
+      aList &#x3D; new T[maxSize];
+      curLen &#x3D; position &#x3D;0;
+    }
+    ~arrList(){                    &#x2F;&#x2F; 析构函数，消除该表实例
+      delete [] aList;
+    }
+    void clear(){                  &#x2F;&#x2F;清楚表中存储的内容，使其成为空表
+      delete [] aList;
+      curLen&#x3D;position&#x3D;0;
+      aList &#x3D; new T[maxSize];
+    }
+    
+    int length();                   &#x2F;&#x2F;返回当前实际长度
+    bool append(const T value);     &#x2F;&#x2F;在表尾添加元素
+    bool insert(const int p, const T value);      &#x2F;&#x2F;插入元素
+    bool delete(const int p);                     &#x2F;&#x2F;删除位置p 上的元素
+    bool setValue(const int p, const T value);    &#x2F;&#x2F; 设置元素值
+    bool getValue(const int p, T&amp;value);          &#x2F;&#x2F;返回元素
+    bool getPos(int &amp;p, const T value);           &#x2F;&#x2F;查找元素
+};
+
+&#x2F;&#x2F;插入元素
+template &lt;class T&gt; bool arrList&lt;T&gt; :: insert(const int p, const T value){
+  int i;
+  if(curLen &gt;&#x3D; maxSize)     &#x2F;&#x2F;判断列表是否已满
+  {
+    cout&lt;&lt; &quot;The list is overflow&quot; &lt;&lt; endl;
+    return false;
+  }
+  if(p&lt;0 || p&gt;curLen){     &#x2F;&#x2F;判断插入位置是否合适
+    cout &lt;&lt; &quot;Insertion point is illegal&quot; &lt;&lt;endl;
+    return false;
+  }
+  for(i&#x3D;curLen;i&gt;p;i--){   
+    aList[i] &#x3D;aList[i-1];   &#x2F;&#x2F;从表尾curLen-1开始往右移动到p
+    aList[p]&#x3D;value;       &#x2F;&#x2F;位置p插入新元素 
+  } 
+  curLen++;              &#x2F;&#x2F;表的实际长度+1
+  return true;
+};
+
+&#x2F;&#x2F;删除元素
+template &lt;class T&gt; bool arrList&lt;T&gt; :: insert(const int p){
+  int i;
+  if(curLen &lt;&#x3D;0){           &#x2F;&#x2F;判断列表是否为空
+    cout&lt;&lt;&quot;&quot;&lt;&lt;endl;
+    return flase;
+  }
+  if(p&lt;0 || p&gt;curLen){     &#x2F;&#x2F;判断删除位置是否合适
+    cout &lt;&lt; &quot;Insertion point is illegal&quot; &lt;&lt;endl;
+    return false;
+  }
+  
+  for(i&#x3D;p;i&lt;curLen-1;i++){    &#x2F;&#x2F;从p左移直到curLen
+    aList[i]&#x3D;aList[i+1];
+  } 
+  curLen--;                &#x2F;&#x2F;表的实际长度减1
+  return true;
+};
+
+&#x2F;&#x2F;修改元素
+
+</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最近更新</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(5)--%E5%86%B3%E7%AD%96%E6%A0%91/" title="ML_决策树"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML_决策树"/></a><div class="content"><a class="title" href="/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(5)--%E5%86%B3%E7%AD%96%E6%A0%91/" title="ML_决策树">ML_决策树</a><time datetime="2022-08-28T14:24:57.912Z" title="Created 2022-08-28 22:24:57">2022-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(6)--%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="ML_神经网络"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML_神经网络"/></a><div class="content"><a class="title" href="/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(6)--%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="ML_神经网络">ML_神经网络</a><time datetime="2022-08-28T14:24:57.912Z" title="Created 2022-08-28 22:24:57">2022-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(7)--%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" title="ML_支持向量机"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML_支持向量机"/></a><div class="content"><a class="title" href="/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(7)--%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" title="ML_支持向量机">ML_支持向量机</a><time datetime="2022-08-28T14:24:57.912Z" title="Created 2022-08-28 22:24:57">2022-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(2)--%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F/" title="ML_性能度量"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML_性能度量"/></a><div class="content"><a class="title" href="/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(2)--%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F/" title="ML_性能度量">ML_性能度量</a><time datetime="2022-08-28T14:24:57.908Z" title="Created 2022-08-28 22:24:57">2022-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(3)--%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C&amp;%E6%96%B9%E5%B7%AE&amp;%E5%81%8F%E5%B7%AE/" title="ML_假设检验、方差、偏差"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ML_假设检验、方差、偏差"/></a><div class="content"><a class="title" href="/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(3)--%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C&amp;%E6%96%B9%E5%B7%AE&amp;%E5%81%8F%E5%B7%AE/" title="ML_假设检验、方差、偏差">ML_假设检验、方差、偏差</a><time datetime="2022-08-28T14:24:57.908Z" title="Created 2022-08-28 22:24:57">2022-08-28</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">机器学习笔记</span><span class="card-category-list-count">7</span></a></li>
+            </ul></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>时间轴</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章 :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-04-07T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最近更新 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-08-29T04:10:01.406Z"></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>访客地图</span></div><div class="item-content"><script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=5V2tOKp8qAdRM-i8eu7ETTO9ugt5uKbbG-U7Yj8uMl8"></script></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By tiaotiaohu</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">欢迎来到我的博客!!!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="Chat"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
