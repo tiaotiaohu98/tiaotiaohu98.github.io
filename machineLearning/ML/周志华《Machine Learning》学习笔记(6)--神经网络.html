@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>tiaotiaohuの98 | tiaotiaohuの98</title><meta name="author" content="tiaotiaohu"><meta name="copyright" content="tiaotiaohu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="无标题页面 - wolai 笔记title: 第6节_神经网络categories: 机器学习笔记上篇主要讨论了决策树算法。首先从决策树的基本概念出发，引出决策树基于树形结构进行决策，进一步介绍了构造决策树的递归流程以及其递归终止条件，在递归的过程中，划分属性的选择起到了关键作用，因此紧接着讨论了三种评估属性划分效果的经典算法，介绍了剪枝策略来解决原生决策树容易产生的过拟合问题，最后简述了属性连">
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>tiaotiaohuの98 | tiaotiaohuの98</title><meta name="author" content="tiaotiaohu"><meta name="copyright" content="tiaotiaohu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="无标题页面 - wolai 笔记                                                                                                                                              titl">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tiaotiaohuの98">
 <meta property="og:url" content="https://tiaotiaohu98.github.io/machineLearning/ML/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(6)--%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html">
 <meta property="og:site_name" content="tiaotiaohuの98">
-<meta property="og:description" content="无标题页面 - wolai 笔记title: 第6节_神经网络categories: 机器学习笔记上篇主要讨论了决策树算法。首先从决策树的基本概念出发，引出决策树基于树形结构进行决策，进一步介绍了构造决策树的递归流程以及其递归终止条件，在递归的过程中，划分属性的选择起到了关键作用，因此紧接着讨论了三种评估属性划分效果的经典算法，介绍了剪枝策略来解决原生决策树容易产生的过拟合问题，最后简述了属性连">
+<meta property="og:description" content="无标题页面 - wolai 笔记                                                                                                                                              titl">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-<meta property="article:published_time" content="2022-08-30T12:13:01.113Z">
-<meta property="article:modified_time" content="2022-08-30T04:11:30.000Z">
+<meta property="article:published_time" content="2022-08-31T12:28:19.728Z">
+<meta property="article:modified_time" content="2022-08-31T12:28:19.728Z">
 <meta property="article:author" content="tiaotiaohu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://tiaotiaohu98.github.io/machineLearning/ML/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(6)--%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
@@ -52,7 +52,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-08-30 12:11:30'
+  postUpdate: '2022-08-31 20:28:19'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -142,11 +142,353 @@
     }
     detectApple()
     })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">articles</div><div class="length-num">18</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">tags</div><div class="length-num">1</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">categories</div><div class="length-num">1</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/machineLearning/machineLearning"><i class="fa-fw fas fa-machineLearning"></i><span> 机器学习</span></a></li><li><a class="site-page child" href="/KG/KG"><i class="fa-fw fas fa-KG"></i><span> 知识图谱</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">tiaotiaohuの98</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/machineLearning/machineLearning"><i class="fa-fw fas fa-machineLearning"></i><span> 机器学习</span></a></li><li><a class="site-page child" href="/KG/KG"><i class="fa-fw fas fa-KG"></i><span> 知识图谱</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="page"><h1 class="page-title"></h1><div id="article-container"><!DOCTYPE html>
-<html lang="zh-Hans-CN"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=Edge"/><link rel="stylesheet" type="text/css" href="css/modern-norm.min.css"/><link rel="stylesheet" type="text/css" href="css/prism.min.css"/><link rel="stylesheet" type="text/css" href="css/katex.min.css"/><link rel="stylesheet" type="text/css" href="css/wolai.css"/><title>无标题页面 - wolai 笔记</title><link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 800 800&apos;%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23fff;%7D%3C/style%3E%3C/defs%3E%3Cg%3E%3Cpath class=&apos;cls-1&apos; d=&apos;M610.08,0c66,0,90,6.88,114.13,19.79a134.62,134.62,0,0,1,56,56l2.28,4.4C793.93,103,800,127.88,800,189.92V610.08l-.08,11.56c-.78,57.38-7.58,79.89-19.71,102.57a134.62,134.62,0,0,1-56,56l-4.4,2.28C697,793.93,672.12,800,610.08,800H189.92l-11.56-.08c-57.38-.78-79.89-7.58-102.57-19.71a134.62,134.62,0,0,1-56-56l-2.28-4.4C6.44,697.75.4,673.72,0,616L0,189.92c0-66,6.88-90,19.79-114.13a134.62,134.62,0,0,1,56-56l4.4-2.28C102.25,6.44,126.28.4,184,0Z&apos;/%3E%3Cpath d=&apos;M610.08,0c66,0,90,6.88,114.13,19.79a134.62,134.62,0,0,1,56,56l2.28,4.4C793.93,103,800,127.88,800,189.92V610.08l-.08,11.56c-.78,57.38-7.58,79.89-19.71,102.57a134.62,134.62,0,0,1-56,56l-4.4,2.28C697,793.93,672.12,800,610.08,800H189.92l-11.56-.08c-57.38-.78-79.89-7.58-102.57-19.71a134.62,134.62,0,0,1-56-56l-2.28-4.4C6.44,697.75.4,673.72,0,616L0,189.92c0-66,6.88-90,19.79-114.13a134.62,134.62,0,0,1,56-56l4.4-2.28C102.25,6.44,126.28.4,184,0Zm4.72,88.9H185.2L172.42,89c-32.78.62-43.68,3.24-54.71,9.14a45.84,45.84,0,0,0-19.54,19.54c-6.61,12.36-9.11,24.55-9.27,67.49V614.8L89,627.58c.62,32.78,3.24,43.68,9.14,54.71a45.84,45.84,0,0,0,19.54,19.54c12.36,6.61,24.55,9.11,67.49,9.27H610.08c46.79,0,59.41-2.44,72.21-9.28a45.84,45.84,0,0,0,19.54-19.54c6.61-12.36,9.11-24.55,9.27-67.49V189.92c0-46.79-2.44-59.41-9.28-72.21a45.84,45.84,0,0,0-19.54-19.54C669.93,91.56,657.74,89.06,614.8,88.9ZM233.33,493.33A73.34,73.34,0,1,1,160,566.67,73.35,73.35,0,0,1,233.33,493.33Z&apos;/%3E%3C/g%3E%3C/svg%3E"></link></head><body><header><div class="image"></div><div class="title"><div class="banner"><div class="icon"></div></div><div data-title="新页面" class="main-title placeholder"></div></div></header><article><hr id="jA4GstgdnTdRxqtow2mhxR" class="wolai-block"/><div id="5Nb1inEkkoCubb8ZeMnQ4f" class="wolai-block wolai-text"><div><span class="inline-wrap">title: 第<span class="jill"></span>6<span class="jill"></span>节_神经网络</span></div></div><div id="uQ1AnvyNUD2oMqeZJcxMQ4" class="wolai-block wolai-text"><div><span class="inline-wrap">categories: 机器学习笔记</span></div></div><hr id="2q9BDpGjTuAYrBtDZ1cZwa" class="wolai-block"/><div id="gsAxNW8UzcusUxdFxQb8vS" class="wolai-block wolai-text"><div><span class="inline-wrap">上篇主要讨论了决策树算法。首先从决策树的基本概念出发，引出决策树基于树形结构进行决策，进一步介绍了构造决策树的递归流程以及其递归终止条件，在递归的过程中，划分属性的选择起到了关键作用，因此紧接着讨论了三种评估属性划分效果的经典算法，介绍了剪枝策略来解决原生决策树容易产生的过拟合问题，最后简述了属性连续值/缺失值的处理方法。本篇将讨论现阶段十分热门的另一个经典监督学习算法--神经网络（neural network）。</span></div></div><h1 id="pU8qkt5yYqPECtxutf6nr8" class="wolai-block"><span class="inline-wrap"><b>5、神经网络</b></span></h1><div id="vwNFGMoVpBhbcZEcQrXc23" class="wolai-block wolai-text"><div><span class="inline-wrap">在机器学习中，神经网络一般指的是“神经网络学习”，是机器学习与神经网络两个学科的交叉部分。所谓神经网络，目前用得最广泛的一个定义是“神经网络是由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界物体所做出的交互反应”。</span></div></div><div id="kDroqEXgycd6YuGhh4Bb3q" class="wolai-block wolai-text"><div><span class="inline-wrap">##</span><span class="inline-wrap"><b>5.1 神经元模型</b></span></div></div><div id="sJ7p8d25g3PsE8a5pdNzrA" class="wolai-block wolai-text"><div><span class="inline-wrap">神经网络中最基本的单元是神经元模型（neuron）。在生物神经网络的原始机制中，每个神经元通常都有多个树突（dendrite），一个轴突（axon）和一个细胞体（cell body），树突短而多分支，轴突长而只有一个；在功能上，树突用于传入其它神经元传递的神经冲动，而轴突用于将神经冲动传出到其它神经元，当树突或细胞体传入的神经冲动使得神经元兴奋时，该神经元就会通过轴突向其它神经元传递兴奋。神经元的生物学结构如下图所示，不得不说高中的生化知识大学忘得可是真干净...</span></div></div><div id="xdaDBGS5HuyjyvKbougCfK" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb6cc11.png" style="width: 1179px"/></figure></div><div id="hg9wTEn7kUHyMAR6uGEFZ1" class="wolai-block wolai-text"><div><span class="inline-wrap">一直沿用至今的“M-P<span class="jill"></span>神经元模型”正是对这一结构进行了抽象，也称“阈值逻辑单元“，其中树突对应于输入部分，每个神经元收到<span class="jill"></span>n<span class="jill"></span>个其他神经元传递过来的输入信号，这些信号通过带权重的连接传递给细胞体，这些权重又称为连接权（connection weight）。细胞体分为两部分，前一部分计算总输入值（即输入信号的加权和，或者说累积电平），后一部分先计算总输入值与该神经元阈值的差值，然后通过激活函数（activation function）的处理，产生输出从轴突传送给其它神经元。M-P<span class="jill"></span>神经元模型如下图所示：</span></div></div><div id="nAoQzCMtmWUk1eabKMfpyC" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb7be44.png" style="width: 648px"/></figure></div><div id="tsdT3oSTPWJPyScQbH1EmA" class="wolai-block wolai-text"><div><span class="inline-wrap">与线性分类十分相似，神经元模型最理想的激活函数也是阶跃函数，即将神经元输入值与阈值的差值映射为输出值<span class="jill"></span>1<span class="jill"></span>或<span class="jill"></span>0，若差值大于零输出<span class="jill"></span>1，对应兴奋；若差值小于零则输出<span class="jill"></span>0，对应抑制。但阶跃函数不连续，不光滑，故在<span class="jill"></span>M-P<span class="jill"></span>神经元模型中，也采用<span class="jill"></span>Sigmoid<span class="jill"></span>函数来近似， Sigmoid<span class="jill"></span>函数将较大范围内变化的输入值挤压到 (0,1) 输出值范围内，所以也称为挤压函数（squashing function）。</span></div></div><div id="nzD3bsiZxnpJaDBnmU3S66" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb40dc5.png" style="width: 688px"/></figure></div><div id="gqhnVfrwa7wM4spFaBM5iM" class="wolai-block wolai-text"><div><span class="inline-wrap">将多个神经元按一定的层次结构连接起来，就得到了神经网络。它是一种包含多个参数的模型，比方说<span class="jill"></span>10<span class="jill"></span>个神经元两两连接，则有<span class="jill"></span>100<span class="jill"></span>个参数需要学习（每个神经元有<span class="jill"></span>9<span class="jill"></span>个连接权以及<span class="jill"></span>1<span class="jill"></span>个阈值），若将每个神经元都看作一个函数，则整个神经网络就是由这些函数相互嵌套而成。</span></div></div><h2 id="ivViZpWw6yNBnwdFhomSsR" class="wolai-block"><span class="inline-wrap"><b>5.2 感知机与多层网络</b></span></h2><div id="sMYyGXsz3b83osV4U46HMe" class="wolai-block wolai-text"><div><span class="inline-wrap">感知机（Perceptron）是由两层神经元组成的一个简单模型，但只有输出层是<span class="jill"></span>M-P<span class="jill"></span>神经元，即只有输出层神经元进行激活函数处理，也称为功能神经元（functional neuron）；输入层只是接受外界信号（样本属性）并传递给输出层（输入层的神经元个数等于样本的属性数目），而没有激活函数。这样一来，感知机与之前线性模型中的对数几率回归的思想基本是一样的，都是通过对属性加权与另一个常数求和，再使用<span class="jill"></span>sigmoid<span class="jill"></span>函数将这个输出值压缩到<span class="jill"></span>0-1<span class="jill"></span>之间，从而解决分类问题。不同的是感知机的输出层应该可以有多个神经元，从而可以实现多分类问题，同时两个模型所用的参数估计方法十分不同。</span></div></div><div id="ujuCv1NXQWA2gDNSAJYsPx" class="wolai-block wolai-text"><div><span class="inline-wrap">给定训练集，则感知机的<span class="jill"></span>n+1<span class="jill"></span>个参数（n<span class="jill"></span>个权重<span class="jill"></span>+1<span class="jill"></span>个阈值）都可以通过学习得到。阈值<span class="jill"></span>Θ<span class="jill"></span>可以看作一个输入值固定为-1<span class="jill"></span>的哑结点的权重<span class="jill"></span>ωn+1，即假设有一个固定输入<span class="jill"></span>xn+1=-1<span class="jill"></span>的输入层神经元，其对应的权重为<span class="jill"></span>ωn+1，这样就把权重和阈值统一为权重的学习了。简单感知机的结构如下图所示：</span></div></div><div id="8kMSK9QTzztVqkL7ocNtB9" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb3fdf0.png" style="width: 544px"/></figure></div><div id="k3Jv9jwHPHm2QzHAd6ohyB" class="wolai-block wolai-text"><div><span class="inline-wrap">感知机权重的学习规则如下：对于训练样本（x，y），当该样本进入感知机学习后，会产生一个输出值，若该输出值与样本的真实标记不一致，则感知机会对权重进行调整，若激活函数为阶跃函数，则调整的方法为（基于梯度下降法）：</span></div></div><div id="3vDVNXVZSVSPPYkfN4cfi5" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb3ba63.png" style="width: 744px"/></figure></div><div id="qoWZ79uvrbbYMiDLmemTL1" class="wolai-block wolai-text"><div><span class="inline-wrap">其中 η∈（0，1）称为学习率，可以看出感知机是通过逐个样本输入来更新权重，首先设定好初始权重（一般为随机），逐个地输入样本数据，若输出值与真实标记相同则继续输入下一个样本，若不一致则更新权重，然后再重新逐个检验，直到每个样本数据的输出值都与真实标记相同。容易看出：感知机模型总是能将训练数据的每一个样本都预测正确，和决策树模型总是能将所有训练数据都分开一样，感知机模型很容易产生过拟合问题。</span></div></div><div id="fMGTEp1kZeBoxQ8CWobBfA" class="wolai-block wolai-text"><div><span class="inline-wrap">由于感知机模型只有一层功能神经元，因此其功能十分有限，只能处理线性可分的问题，对于这类问题，感知机的学习过程一定会收敛（converge），因此总是可以求出适当的权值。但是对于像书上提到的异或问题，只通过一层功能神经元往往不能解决，因此要解决非线性可分问题，需要考虑使用多层功能神经元，即神经网络。多层神经网络的拓扑结构如下图所示：</span></div></div><div id="jB9H1cLsVCnA9KZWiTKktN" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb58ec6.png" style="width: 907px"/></figure></div><div id="hrwJcoU4QGo1dkJQn2NDWP" class="wolai-block wolai-text"><div><span class="inline-wrap">在神经网络中，输入层与输出层之间的层称为隐含层或隐层（hidden layer），隐层和输出层的神经元都是具有激活函数的功能神经元。只需包含一个隐层便可以称为多层神经网络，常用的神经网络称为“多层前馈神经网络”（multi-layer feedforward neural network），该结构满足以下几个特点：</span></div><ul class="wolai-block"><li id="e2UssmiwzCNjx9SqXoP6yd"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">每层神经元与下一层神经元之间完全互连</span></li><li id="ezDNR1easrZcUBf3qQqemz"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">神经元之间不存在同层连接</span></li><li id="bd7i2L7bEb3YDvSDFUqJbg"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">神经元之间不存在跨层连接</span></li></ul></div><div id="kvb1KCATC9r8YcUk9urxnd" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb47ff8.png"/></figure></div><div id="uWaXFUzn1Q56Wv7aFdA29v" class="wolai-block wolai-text"><div><span class="inline-wrap">根据上面的特点可以得知：这里的“前馈”指的是网络拓扑结构中不存在环或回路，而不是指该网络只能向前传播而不能向后传播（下节中的<span class="jill"></span>BP<span class="jill"></span>神经网络正是基于前馈神经网络而增加了反馈调节机制）。神经网络的学习过程就是根据训练数据来调整神经元之间的“连接权”以及每个神经元的阈值，换句话说：神经网络所学习到的东西都蕴含在网络的连接权与阈值中。</span></div></div><h2 id="bwGS1v66Jv54fsYTStYKDy" class="wolai-block"><span class="inline-wrap"><b>5.3 BP<span class="jill"></span>神经网络算法</b></span></h2><div id="8xjjZ7Lm94Ua2WvdL8trXs" class="wolai-block wolai-text"><div><span class="inline-wrap">由上面可以得知：神经网络的学习主要蕴含在权重和阈值中，多层网络使用上面简单感知机的权重调整规则显然不够用了，BP<span class="jill"></span>神经网络算法即误差逆传播算法（error BackPropagation）正是为学习多层前馈神经网络而设计，BP<span class="jill"></span>神经网络算法是迄今为止最成功的的神经网络学习算法。</span></div></div><div id="bvr8YMZJhnR1KJcXr3bGEM" class="wolai-block wolai-text"><div><span class="inline-wrap">一般而言，只需包含一个足够多神经元的隐层，就能以任意精度逼近任意复杂度的连续函数[Hornik et al.,1989]，故下面以训练单隐层的前馈神经网络为例，介绍<span class="jill"></span>BP<span class="jill"></span>神经网络的算法思想。</span></div></div><div id="avWM98znFE4gYM82dFxyK7" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb92ff5.png"/></figure></div><div id="fbr93wrRYDDCf44zuKEEZM" class="wolai-block wolai-text"><div><span class="inline-wrap">上图为一个单隐层前馈神经网络的拓扑结构，BP<span class="jill"></span>神经网络算法也使用梯度下降法（gradient descent），以单个样本的均方误差的负梯度方向对权重进行调节。可以看出：BP<span class="jill"></span>算法首先将误差反向传播给隐层神经元，调节隐层到输出层的连接权重与输出层神经元的阈值；接着根据隐含层神经元的均方误差，来调节输入层到隐含层的连接权值与隐含层神经元的阈值。BP<span class="jill"></span>算法基本的推导过程与感知机的推导过程原理是相同的，下面给出调整隐含层到输出层的权重调整规则的推导过程：</span></div></div><div id="sv2uvUXHinPsD1YoEoU687" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb86229.png"/></figure></div><div id="idd42KTDs9oZDKWu8T5U5p" class="wolai-block wolai-text"><div><span class="inline-wrap">学习率<span class="jill"></span>η∈（0，1）控制着沿反梯度方向下降的步长，若步长太大则下降太快容易产生震荡，若步长太小则收敛速度太慢，一般地常把<span class="jill"></span>η<span class="jill"></span>设置为<span class="jill"></span>0.1，有时更新权重时会将输出层与隐含层设置为不同的学习率。BP<span class="jill"></span>算法的基本流程如下所示：</span></div></div><div id="ekiDYMDw7WYDcaavNWaTPa" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb59e99.png"/></figure></div><div id="rYJZg5mboGnqy41NvoXmEz" class="wolai-block wolai-text"><div><span class="inline-wrap">BP<span class="jill"></span>算法的更新规则是基于每个样本的预测值与真实类标的均方误差来进行权值调节，即<span class="jill"></span>BP<span class="jill"></span>算法每次更新只针对于单个样例。需要注意的是：BP<span class="jill"></span>算法的最终目标是要最小化整个训练集<span class="jill"></span>D<span class="jill"></span>上的累积误差，即：</span></div></div><div id="n3hCUXQrqfzcx7kdwHiC4Q" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72ce222a96.png"/></figure></div><div id="34zbdvmVJnCXFMua24XFiB" class="wolai-block wolai-text"><div><span class="inline-wrap">如果基于累积误差最小化的更新规则，则得到了累积误差逆传播算法（accumulated error backpropagation），即每次读取全部的数据集一遍，进行一轮学习，从而基于当前的累积误差进行权值调整，因此参数更新的频率相比标准<span class="jill"></span>BP<span class="jill"></span>算法低了很多，但在很多任务中，尤其是在数据量很大的时候，往往标准<span class="jill"></span>BP<span class="jill"></span>算法会获得较好的结果。另外对于如何设置隐层神经元个数的问题，至今仍然没有好的解决方案，常使用“试错法”进行调整。</span></div></div><div id="mV58fZ1fhrDT93wbQabSBJ" class="wolai-block wolai-text"><div><span class="inline-wrap">前面提到，BP<span class="jill"></span>神经网络强大的学习能力常常容易造成过拟合问题，有以下两种策略来缓解<span class="jill"></span>BP<span class="jill"></span>网络的过拟合问题：</span></div></div><ul class="wolai-block"><li id="mwdErea4JFs6N5g7NfmWW1"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">早停：将数据分为训练集与测试集，训练集用于学习，测试集用于评估性能，若在训练过程中，训练集的累积误差降低，而测试集的累积误差升高，则停止训练。</span></li><li id="sK2wcpgrptnd3HJxEoZrL3"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">引入正则化（regularization）：基本思想是在累积误差函数中增加一个用于描述网络复杂度的部分，例如所有权值与阈值的平方和，其中<span class="jill"></span>λ∈（0,1）用于对累积经验误差与网络复杂度这两项进行折中，常通过交叉验证法来估计。</span></li></ul><div id="byVfJ1oMW1NWcPmSSztepW" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72ce227ff1.png"/></figure></div><h2 id="th7VhFMGWCfjtNBEZn9mAr" class="wolai-block"><span class="inline-wrap"><b>5.4 全局最小与局部最小</b></span></h2><div id="rFYZH4paPrQsmfGZzD5AMT" class="wolai-block wolai-text"><div><span class="inline-wrap">模型学习的过程实质上就是一个寻找最优参数的过程，例如<span class="jill"></span>BP<span class="jill"></span>算法试图通过最速下降来寻找使得累积经验误差最小的权值与阈值，在谈到最优时，一般会提到局部极小（local minimum）和全局最小（global minimum）。</span></div><ul class="wolai-block"><li id="qMgrHF8jfVToLoo67WMCVJ"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">局部极小解：参数空间中的某个点，其邻域点的误差函数值均不小于该点的误差函数值。</span></li><li id="uwdNenpKeuMvxRh81vnJdT"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">全局最小解：参数空间中的某个点，所有其他点的误差函数值均不小于该点的误差函数值。</span></li></ul></div><div id="fNVksmQfjqsTjwvvtbWLD1" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72ce2803dc.png"/></figure></div><div id="rxopeomjtieFbsnrttMRxh" class="wolai-block wolai-text"><div><span class="inline-wrap">要成为局部极小点，只要满足该点在参数空间中的梯度为零。局部极小可以有多个，而全局最小只有一个。全局最小一定是局部极小，但局部最小却不一定是全局最小。显然在很多机器学习算法中，都试图找到目标函数的全局最小。梯度下降法的主要思想就是沿着负梯度方向去搜索最优解，负梯度方向是函数值下降最快的方向，若迭代到某处的梯度为<span class="jill"></span>0，则表示达到一个局部最小，参数更新停止。因此在现实任务中，通常使用以下策略尽可能地去接近全局最小。</span></div><ul class="wolai-block"><li id="8NnkWiT43s15JVdiTwSpMK"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">以多组不同参数值初始化多个神经网络，按标准方法训练，迭代停止后，取其中误差最小的解作为最终参数。</span></li><li id="kFzkcwhdAscptar69rGoLR"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">使用“模拟退火”技术，这里不做具体介绍。</span></li></ul></div><ul class="wolai-block"><li id="fWv6B1uzeozozZSdmu4dZ"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">使用随机梯度下降，即在计算梯度时加入了随机因素，使得在局部最小时，计算的梯度仍可能不为<span class="jill"></span>0，从而迭代可以继续进行。</span></li></ul><h2 id="xzQr7rnMD4QcPPuxabbEyY" class="wolai-block"><span class="inline-wrap"><b>5.5 深度学习</b></span></h2><div id="xt3vyjbGLJPGio5uHa7uRr" class="wolai-block wolai-text"><div><span class="inline-wrap">理论上，参数越多，模型复杂度就越高，容量（capability）就越大，从而能完成更复杂的学习任务。深度学习（deep learning）正是一种极其复杂而强大的模型。</span></div></div><div id="bYPWEraz56TRiATFEhKXgP" class="wolai-block wolai-text"><div><span class="inline-wrap">怎么增大模型复杂度呢？两个办法，一是增加隐层的数目，二是增加隐层神经元的数目。前者更有效一些，因为它不仅增加了功能神经元的数量，还增加了激活函数嵌套的层数。但是对于多隐层神经网络，经典算法如标准<span class="jill"></span>BP<span class="jill"></span>算法往往会在误差逆传播时发散（diverge），无法收敛达到稳定状态。</span></div></div><div id="pzo369BitYWmY7z5T79xaX" class="wolai-block wolai-text"><div><span class="inline-wrap">那要怎么有效地训练多隐层神经网络呢？一般来说有以下两种方法：</span></div></div><ul class="wolai-block"><li id="ivuB5iQACq2SHzyrfYRdjg"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">无监督逐层训练（unsupervised layer-wise training）：每次训练一层隐节点，把上一层隐节点的输出当作输入来训练，本层隐结点训练好后，输出再作为下一层的输入来训练，这称为预训练（pre-training）。全部预训练完成后，再对整个网络进行微调（fine-tuning）训练。一个典型例子就是深度信念网络（deep belief network，简称<span class="jill"></span>DBN）。这种做法其实可以视为把大量的参数进行分组，先找出每组较好的设置，再基于这些局部最优的结果来训练全局最优。</span></li><li id="tc4ZPQYtf1mDs9PfAdorPd"><div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg></div><span class="inline-wrap">权共享（weight sharing）：令同一层神经元使用完全相同的连接权，典型的例子是卷积神经网络（Convolutional Neural Network，简称<span class="jill"></span>CNN）。这样做可以大大减少需要训练的参数数目。</span></li></ul><div id="t3hvPXnegnVHhgeTyJSAgM" class="wolai-block wolai-center"><figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72ce28d756.png"/></figure></div><div id="pigasCccDiNk2tnTCopmCR" class="wolai-block wolai-text"><div><span class="inline-wrap">深度学习可以理解为一种特征学习（feature learning）或者表示学习（representation learning），无论是<span class="jill"></span>DBN<span class="jill"></span>还是<span class="jill"></span>CNN，都是通过多个隐层来把与输出目标联系不大的初始输入转化为与输出目标更加密切的表示，使原来只通过单层映射难以完成的任务变为可能。即通过多层处理，逐渐将初始的“低层”特征表示转化为“高层”特征表示，从而使得最后可以用简单的模型来完成复杂的学习任务。</span></div></div><div id="je8WofJV5Zt8NocaYAbG1H" class="wolai-block wolai-text"><div><span class="inline-wrap">传统任务中，样本的特征需要人类专家来设计，这称为特征工程（feature engineering）。特征好坏对泛化性能有至关重要的影响。而深度学习为全自动数据分析带来了可能，可以自动产生更好的特征。</span></div></div></article><footer></footer></body></html></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">tiaotiaohu</div><div class="author-info__description">跳跳虎的酒吧</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tiaotiaohu98/"><i class="fab fa-github"></i><span>我的 Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">跳跳虎的个人博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pU8qkt5yYqPECtxutf6nr8"><span class="toc-number">1.</span> <span class="toc-text">5、神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ivViZpWw6yNBnwdFhomSsR"><span class="toc-number">1.1.</span> <span class="toc-text">5.2 感知机与多层网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bwGS1v66Jv54fsYTStYKDy"><span class="toc-number">1.2.</span> <span class="toc-text">5.3 BP神经网络算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#th7VhFMGWCfjtNBEZn9mAr"><span class="toc-number">1.3.</span> <span class="toc-text">5.4 全局最小与局部最小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xzQr7rnMD4QcPPuxabbEyY"><span class="toc-number">1.4.</span> <span class="toc-text">5.5 深度学习</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(10)--%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" title="第10节_集成学习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第10节_集成学习"/></a><div class="content"><a class="title" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(10)--%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" title="第10节_集成学习">第10节_集成学习</a><time datetime="2022-08-29T07:18:04.072Z" title="发表于 2022-08-29 15:18:04">2022-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(11)--%E8%81%9A%E7%B1%BB/" title="第11节_聚类"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第11节_聚类"/></a><div class="content"><a class="title" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(11)--%E8%81%9A%E7%B1%BB/" title="第11节_聚类">第11节_聚类</a><time datetime="2022-08-29T07:18:04.072Z" title="发表于 2022-08-29 15:18:04">2022-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(13)--%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E7%A8%80%E7%96%8F%E5%AD%A6%E4%B9%A0/" title="第13节_特征选择与稀疏学习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第13节_特征选择与稀疏学习"/></a><div class="content"><a class="title" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(13)--%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E7%A8%80%E7%96%8F%E5%AD%A6%E4%B9%A0/" title="第13节_特征选择与稀疏学习">第13节_特征选择与稀疏学习</a><time datetime="2022-08-29T07:18:04.072Z" title="发表于 2022-08-29 15:18:04">2022-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(14)--%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA/" title="第14节_计算学习理论"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第14节_计算学习理论"/></a><div class="content"><a class="title" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(14)--%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA/" title="第14节_计算学习理论">第14节_计算学习理论</a><time datetime="2022-08-29T07:18:04.072Z" title="发表于 2022-08-29 15:18:04">2022-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(15)--%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" title="第15节_半监督学习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第15节_半监督学习"/></a><div class="content"><a class="title" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(15)--%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" title="第15节_半监督学习">第15节_半监督学习</a><time datetime="2022-08-29T07:18:04.072Z" title="发表于 2022-08-29 15:18:04">2022-08-29</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+<html lang="zh-Hans-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" type="text/css" href="css/modern-norm.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/prism.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/wolai.css" />
+    <title>无标题页面 - wolai 笔记</title>
+    <link rel="shortcut icon"
+        href="data:image/svg+xml,%3Csvg xmlns=&apos;http://www.w3.org/2000/svg&apos; viewBox=&apos;0 0 800 800&apos;%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23fff;%7D%3C/style%3E%3C/defs%3E%3Cg%3E%3Cpath class=&apos;cls-1&apos; d=&apos;M610.08,0c66,0,90,6.88,114.13,19.79a134.62,134.62,0,0,1,56,56l2.28,4.4C793.93,103,800,127.88,800,189.92V610.08l-.08,11.56c-.78,57.38-7.58,79.89-19.71,102.57a134.62,134.62,0,0,1-56,56l-4.4,2.28C697,793.93,672.12,800,610.08,800H189.92l-11.56-.08c-57.38-.78-79.89-7.58-102.57-19.71a134.62,134.62,0,0,1-56-56l-2.28-4.4C6.44,697.75.4,673.72,0,616L0,189.92c0-66,6.88-90,19.79-114.13a134.62,134.62,0,0,1,56-56l4.4-2.28C102.25,6.44,126.28.4,184,0Z&apos;/%3E%3Cpath d=&apos;M610.08,0c66,0,90,6.88,114.13,19.79a134.62,134.62,0,0,1,56,56l2.28,4.4C793.93,103,800,127.88,800,189.92V610.08l-.08,11.56c-.78,57.38-7.58,79.89-19.71,102.57a134.62,134.62,0,0,1-56,56l-4.4,2.28C697,793.93,672.12,800,610.08,800H189.92l-11.56-.08c-57.38-.78-79.89-7.58-102.57-19.71a134.62,134.62,0,0,1-56-56l-2.28-4.4C6.44,697.75.4,673.72,0,616L0,189.92c0-66,6.88-90,19.79-114.13a134.62,134.62,0,0,1,56-56l4.4-2.28C102.25,6.44,126.28.4,184,0Zm4.72,88.9H185.2L172.42,89c-32.78.62-43.68,3.24-54.71,9.14a45.84,45.84,0,0,0-19.54,19.54c-6.61,12.36-9.11,24.55-9.27,67.49V614.8L89,627.58c.62,32.78,3.24,43.68,9.14,54.71a45.84,45.84,0,0,0,19.54,19.54c12.36,6.61,24.55,9.11,67.49,9.27H610.08c46.79,0,59.41-2.44,72.21-9.28a45.84,45.84,0,0,0,19.54-19.54c6.61-12.36,9.11-24.55,9.27-67.49V189.92c0-46.79-2.44-59.41-9.28-72.21a45.84,45.84,0,0,0-19.54-19.54C669.93,91.56,657.74,89.06,614.8,88.9ZM233.33,493.33A73.34,73.34,0,1,1,160,566.67,73.35,73.35,0,0,1,233.33,493.33Z&apos;/%3E%3C/g%3E%3C/svg%3E">
+    </link>
+</head>
+
+<body>
+    <header>
+        <div class="image"></div>
+        <div class="title">
+            <div class="banner">
+                <div class="icon"></div>
+            </div>
+            <div data-title="新页面" class="main-title placeholder"></div>
+        </div>
+    </header>
+    <article>
+        <hr id="jA4GstgdnTdRxqtow2mhxR" class="wolai-block" />
+        <div id="5Nb1inEkkoCubb8ZeMnQ4f" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">title: 第<span class="jill"></span>6<span class="jill"></span>节_神经网络</span>
+            </div>
+        </div>
+        <div id="uQ1AnvyNUD2oMqeZJcxMQ4" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">categories: 机器学习笔记</span></div>
+        </div>
+        <hr id="2q9BDpGjTuAYrBtDZ1cZwa" class="wolai-block" />
+        <div id="gsAxNW8UzcusUxdFxQb8vS" class="wolai-block wolai-text">
+            <div><span
+                    class="inline-wrap">上篇主要讨论了决策树算法。首先从决策树的基本概念出发，引出决策树基于树形结构进行决策，进一步介绍了构造决策树的递归流程以及其递归终止条件，在递归的过程中，划分属性的选择起到了关键作用，因此紧接着讨论了三种评估属性划分效果的经典算法，介绍了剪枝策略来解决原生决策树容易产生的过拟合问题，最后简述了属性连续值/缺失值的处理方法。本篇将讨论现阶段十分热门的另一个经典监督学习算法--神经网络（neural
+                    network）。</span></div>
+        </div>
+        <h1 id="pU8qkt5yYqPECtxutf6nr8" class="wolai-block"><span class="inline-wrap"><b>5、神经网络</b></span></h1>
+        <div id="vwNFGMoVpBhbcZEcQrXc23" class="wolai-block wolai-text">
+            <div><span
+                    class="inline-wrap">在机器学习中，神经网络一般指的是“神经网络学习”，是机器学习与神经网络两个学科的交叉部分。所谓神经网络，目前用得最广泛的一个定义是“神经网络是由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界物体所做出的交互反应”。</span>
+            </div>
+        </div>
+        <h2 id="ivViZpWw6yNBnwdFhomSsR" class="wolai-block"><span class="inline-wrap"><b>5.1 神经元模型</b></span></h2>
+        <div id="sJ7p8d25g3PsE8a5pdNzrA" class="wolai-block wolai-text">
+            <div><span
+                    class="inline-wrap">神经网络中最基本的单元是神经元模型（neuron）。在生物神经网络的原始机制中，每个神经元通常都有多个树突（dendrite），一个轴突（axon）和一个细胞体（cell
+                    body），树突短而多分支，轴突长而只有一个；在功能上，树突用于传入其它神经元传递的神经冲动，而轴突用于将神经冲动传出到其它神经元，当树突或细胞体传入的神经冲动使得神经元兴奋时，该神经元就会通过轴突向其它神经元传递兴奋。神经元的生物学结构如下图所示，不得不说高中的生化知识大学忘得可是真干净...</span>
+            </div>
+        </div>
+        <div id="xdaDBGS5HuyjyvKbougCfK" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb6cc11.png"
+                    style="width: 1179px" /></figure>
+        </div>
+        <div id="hg9wTEn7kUHyMAR6uGEFZ1" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">一直沿用至今的“M-P<span
+                        class="jill"></span>神经元模型”正是对这一结构进行了抽象，也称“阈值逻辑单元“，其中树突对应于输入部分，每个神经元收到<span
+                        class="jill"></span>n<span
+                        class="jill"></span>个其他神经元传递过来的输入信号，这些信号通过带权重的连接传递给细胞体，这些权重又称为连接权（connection
+                    weight）。细胞体分为两部分，前一部分计算总输入值（即输入信号的加权和，或者说累积电平），后一部分先计算总输入值与该神经元阈值的差值，然后通过激活函数（activation
+                    function）的处理，产生输出从轴突传送给其它神经元。M-P<span class="jill"></span>神经元模型如下图所示：</span></div>
+        </div>
+        <div id="nAoQzCMtmWUk1eabKMfpyC" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb7be44.png"
+                    style="width: 648px" /></figure>
+        </div>
+        <div id="tsdT3oSTPWJPyScQbH1EmA" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">与线性分类十分相似，神经元模型最理想的激活函数也是阶跃函数，即将神经元输入值与阈值的差值映射为输出值<span
+                        class="jill"></span>1<span class="jill"></span>或<span class="jill"></span>0，若差值大于零输出<span
+                        class="jill"></span>1，对应兴奋；若差值小于零则输出<span class="jill"></span>0，对应抑制。但阶跃函数不连续，不光滑，故在<span
+                        class="jill"></span>M-P<span class="jill"></span>神经元模型中，也采用<span
+                        class="jill"></span>Sigmoid<span class="jill"></span>函数来近似， Sigmoid<span
+                        class="jill"></span>函数将较大范围内变化的输入值挤压到 (0,1) 输出值范围内，所以也称为挤压函数（squashing function）。</span></div>
+        </div>
+        <div id="nzD3bsiZxnpJaDBnmU3S66" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb40dc5.png"
+                    style="width: 688px" /></figure>
+        </div>
+        <div id="gqhnVfrwa7wM4spFaBM5iM" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">将多个神经元按一定的层次结构连接起来，就得到了神经网络。它是一种包含多个参数的模型，比方说<span
+                        class="jill"></span>10<span class="jill"></span>个神经元两两连接，则有<span class="jill"></span>100<span
+                        class="jill"></span>个参数需要学习（每个神经元有<span class="jill"></span>9<span
+                        class="jill"></span>个连接权以及<span class="jill"></span>1<span
+                        class="jill"></span>个阈值），若将每个神经元都看作一个函数，则整个神经网络就是由这些函数相互嵌套而成。</span></div>
+        </div>
+        <h2 id="ivViZpWw6yNBnwdFhomSsR" class="wolai-block"><span class="inline-wrap"><b>5.2 感知机与多层网络</b></span></h2>
+        <div id="sMYyGXsz3b83osV4U46HMe" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">感知机（Perceptron）是由两层神经元组成的一个简单模型，但只有输出层是<span class="jill"></span>M-P<span
+                        class="jill"></span>神经元，即只有输出层神经元进行激活函数处理，也称为功能神经元（functional
+                    neuron）；输入层只是接受外界信号（样本属性）并传递给输出层（输入层的神经元个数等于样本的属性数目），而没有激活函数。这样一来，感知机与之前线性模型中的对数几率回归的思想基本是一样的，都是通过对属性加权与另一个常数求和，再使用<span
+                        class="jill"></span>sigmoid<span class="jill"></span>函数将这个输出值压缩到<span
+                        class="jill"></span>0-1<span
+                        class="jill"></span>之间，从而解决分类问题。不同的是感知机的输出层应该可以有多个神经元，从而可以实现多分类问题，同时两个模型所用的参数估计方法十分不同。</span>
+            </div>
+        </div>
+        <div id="ujuCv1NXQWA2gDNSAJYsPx" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">给定训练集，则感知机的<span class="jill"></span>n+1<span class="jill"></span>个参数（n<span
+                        class="jill"></span>个权重<span class="jill"></span>+1<span
+                        class="jill"></span>个阈值）都可以通过学习得到。阈值<span class="jill"></span>Θ<span
+                        class="jill"></span>可以看作一个输入值固定为-1<span class="jill"></span>的哑结点的权重<span
+                        class="jill"></span>ωn+1，即假设有一个固定输入<span class="jill"></span>xn+1=-1<span
+                        class="jill"></span>的输入层神经元，其对应的权重为<span
+                        class="jill"></span>ωn+1，这样就把权重和阈值统一为权重的学习了。简单感知机的结构如下图所示：</span></div>
+        </div>
+        <div id="8kMSK9QTzztVqkL7ocNtB9" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb3fdf0.png"
+                    style="width: 544px" /></figure>
+        </div>
+        <div id="k3Jv9jwHPHm2QzHAd6ohyB" class="wolai-block wolai-text">
+            <div><span
+                    class="inline-wrap">感知机权重的学习规则如下：对于训练样本（x，y），当该样本进入感知机学习后，会产生一个输出值，若该输出值与样本的真实标记不一致，则感知机会对权重进行调整，若激活函数为阶跃函数，则调整的方法为（基于梯度下降法）：</span>
+            </div>
+        </div>
+        <div id="3vDVNXVZSVSPPYkfN4cfi5" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb3ba63.png"
+                    style="width: 744px" /></figure>
+        </div>
+        <div id="qoWZ79uvrbbYMiDLmemTL1" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">其中
+                    η∈（0，1）称为学习率，可以看出感知机是通过逐个样本输入来更新权重，首先设定好初始权重（一般为随机），逐个地输入样本数据，若输出值与真实标记相同则继续输入下一个样本，若不一致则更新权重，然后再重新逐个检验，直到每个样本数据的输出值都与真实标记相同。容易看出：感知机模型总是能将训练数据的每一个样本都预测正确，和决策树模型总是能将所有训练数据都分开一样，感知机模型很容易产生过拟合问题。</span>
+            </div>
+        </div>
+        <div id="fMGTEp1kZeBoxQ8CWobBfA" class="wolai-block wolai-text">
+            <div><span
+                    class="inline-wrap">由于感知机模型只有一层功能神经元，因此其功能十分有限，只能处理线性可分的问题，对于这类问题，感知机的学习过程一定会收敛（converge），因此总是可以求出适当的权值。但是对于像书上提到的异或问题，只通过一层功能神经元往往不能解决，因此要解决非线性可分问题，需要考虑使用多层功能神经元，即神经网络。多层神经网络的拓扑结构如下图所示：</span>
+            </div>
+        </div>
+        <div id="jB9H1cLsVCnA9KZWiTKktN" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb58ec6.png"
+                    style="width: 907px" /></figure>
+        </div>
+        <div id="hrwJcoU4QGo1dkJQn2NDWP" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">在神经网络中，输入层与输出层之间的层称为隐含层或隐层（hidden
+                    layer），隐层和输出层的神经元都是具有激活函数的功能神经元。只需包含一个隐层便可以称为多层神经网络，常用的神经网络称为“多层前馈神经网络”（multi-layer feedforward
+                    neural network），该结构满足以下几个特点：</span></div>
+            <ul class="wolai-block">
+                <li id="e2UssmiwzCNjx9SqXoP6yd">
+                    <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                        </svg></div><span class="inline-wrap">每层神经元与下一层神经元之间完全互连</span>
+                </li>
+                <li id="ezDNR1easrZcUBf3qQqemz">
+                    <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                        </svg></div><span class="inline-wrap">神经元之间不存在同层连接</span>
+                </li>
+                <li id="bd7i2L7bEb3YDvSDFUqJbg">
+                    <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                        </svg></div><span class="inline-wrap">神经元之间不存在跨层连接</span>
+                </li>
+            </ul>
+        </div>
+        <div id="kvb1KCATC9r8YcUk9urxnd" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb47ff8.png" /></figure>
+        </div>
+        <div id="uWaXFUzn1Q56Wv7aFdA29v" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">根据上面的特点可以得知：这里的“前馈”指的是网络拓扑结构中不存在环或回路，而不是指该网络只能向前传播而不能向后传播（下节中的<span
+                        class="jill"></span>BP<span
+                        class="jill"></span>神经网络正是基于前馈神经网络而增加了反馈调节机制）。神经网络的学习过程就是根据训练数据来调整神经元之间的“连接权”以及每个神经元的阈值，换句话说：神经网络所学习到的东西都蕴含在网络的连接权与阈值中。</span>
+            </div>
+        </div>
+        <h2 id="bwGS1v66Jv54fsYTStYKDy" class="wolai-block"><span class="inline-wrap"><b>5.3 BP<span
+                        class="jill"></span>神经网络算法</b></span></h2>
+        <div id="8xjjZ7Lm94Ua2WvdL8trXs" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">由上面可以得知：神经网络的学习主要蕴含在权重和阈值中，多层网络使用上面简单感知机的权重调整规则显然不够用了，BP<span
+                        class="jill"></span>神经网络算法即误差逆传播算法（error BackPropagation）正是为学习多层前馈神经网络而设计，BP<span
+                        class="jill"></span>神经网络算法是迄今为止最成功的的神经网络学习算法。</span></div>
+        </div>
+        <div id="bvr8YMZJhnR1KJcXr3bGEM" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">一般而言，只需包含一个足够多神经元的隐层，就能以任意精度逼近任意复杂度的连续函数[Hornik et
+                    al.,1989]，故下面以训练单隐层的前馈神经网络为例，介绍<span class="jill"></span>BP<span
+                        class="jill"></span>神经网络的算法思想。</span></div>
+        </div>
+        <div id="avWM98znFE4gYM82dFxyK7" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb92ff5.png" /></figure>
+        </div>
+        <div id="fbr93wrRYDDCf44zuKEEZM" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">上图为一个单隐层前馈神经网络的拓扑结构，BP<span class="jill"></span>神经网络算法也使用梯度下降法（gradient
+                    descent），以单个样本的均方误差的负梯度方向对权重进行调节。可以看出：BP<span
+                        class="jill"></span>算法首先将误差反向传播给隐层神经元，调节隐层到输出层的连接权重与输出层神经元的阈值；接着根据隐含层神经元的均方误差，来调节输入层到隐含层的连接权值与隐含层神经元的阈值。BP<span
+                        class="jill"></span>算法基本的推导过程与感知机的推导过程原理是相同的，下面给出调整隐含层到输出层的权重调整规则的推导过程：</span></div>
+        </div>
+        <div id="sv2uvUXHinPsD1YoEoU687" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb86229.png" /></figure>
+        </div>
+        <div id="idd42KTDs9oZDKWu8T5U5p" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">学习率<span
+                        class="jill"></span>η∈（0，1）控制着沿反梯度方向下降的步长，若步长太大则下降太快容易产生震荡，若步长太小则收敛速度太慢，一般地常把<span
+                        class="jill"></span>η<span class="jill"></span>设置为<span
+                        class="jill"></span>0.1，有时更新权重时会将输出层与隐含层设置为不同的学习率。BP<span
+                        class="jill"></span>算法的基本流程如下所示：</span></div>
+        </div>
+        <div id="ekiDYMDw7WYDcaavNWaTPa" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72cbb59e99.png" /></figure>
+        </div>
+        <div id="rYJZg5mboGnqy41NvoXmEz" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">BP<span class="jill"></span>算法的更新规则是基于每个样本的预测值与真实类标的均方误差来进行权值调节，即<span
+                        class="jill"></span>BP<span class="jill"></span>算法每次更新只针对于单个样例。需要注意的是：BP<span
+                        class="jill"></span>算法的最终目标是要最小化整个训练集<span class="jill"></span>D<span
+                        class="jill"></span>上的累积误差，即：</span></div>
+        </div>
+        <div id="n3hCUXQrqfzcx7kdwHiC4Q" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72ce222a96.png" /></figure>
+        </div>
+        <div id="34zbdvmVJnCXFMua24XFiB" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">如果基于累积误差最小化的更新规则，则得到了累积误差逆传播算法（accumulated error
+                    backpropagation），即每次读取全部的数据集一遍，进行一轮学习，从而基于当前的累积误差进行权值调整，因此参数更新的频率相比标准<span
+                        class="jill"></span>BP<span class="jill"></span>算法低了很多，但在很多任务中，尤其是在数据量很大的时候，往往标准<span
+                        class="jill"></span>BP<span
+                        class="jill"></span>算法会获得较好的结果。另外对于如何设置隐层神经元个数的问题，至今仍然没有好的解决方案，常使用“试错法”进行调整。</span></div>
+        </div>
+        <div id="mV58fZ1fhrDT93wbQabSBJ" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">前面提到，BP<span class="jill"></span>神经网络强大的学习能力常常容易造成过拟合问题，有以下两种策略来缓解<span
+                        class="jill"></span>BP<span class="jill"></span>网络的过拟合问题：</span></div>
+        </div>
+        <ul class="wolai-block">
+            <li id="mwdErea4JFs6N5g7NfmWW1">
+                <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                    </svg></div><span
+                    class="inline-wrap">早停：将数据分为训练集与测试集，训练集用于学习，测试集用于评估性能，若在训练过程中，训练集的累积误差降低，而测试集的累积误差升高，则停止训练。</span>
+            </li>
+            <li id="sK2wcpgrptnd3HJxEoZrL3">
+                <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                    </svg></div><span
+                    class="inline-wrap">引入正则化（regularization）：基本思想是在累积误差函数中增加一个用于描述网络复杂度的部分，例如所有权值与阈值的平方和，其中<span
+                        class="jill"></span>λ∈（0,1）用于对累积经验误差与网络复杂度这两项进行折中，常通过交叉验证法来估计。</span>
+            </li>
+        </ul>
+        <div id="byVfJ1oMW1NWcPmSSztepW" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72ce227ff1.png" /></figure>
+        </div>
+        <h2 id="th7VhFMGWCfjtNBEZn9mAr" class="wolai-block"><span class="inline-wrap"><b>5.4 全局最小与局部最小</b></span></h2>
+        <div id="rFYZH4paPrQsmfGZzD5AMT" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">模型学习的过程实质上就是一个寻找最优参数的过程，例如<span class="jill"></span>BP<span
+                        class="jill"></span>算法试图通过最速下降来寻找使得累积经验误差最小的权值与阈值，在谈到最优时，一般会提到局部极小（local minimum）和全局最小（global
+                    minimum）。</span></div>
+            <ul class="wolai-block">
+                <li id="qMgrHF8jfVToLoo67WMCVJ">
+                    <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                        </svg></div><span class="inline-wrap">局部极小解：参数空间中的某个点，其邻域点的误差函数值均不小于该点的误差函数值。</span>
+                </li>
+                <li id="uwdNenpKeuMvxRh81vnJdT">
+                    <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                        </svg></div><span class="inline-wrap">全局最小解：参数空间中的某个点，所有其他点的误差函数值均不小于该点的误差函数值。</span>
+                </li>
+            </ul>
+        </div>
+        <div id="fNVksmQfjqsTjwvvtbWLD1" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72ce2803dc.png" /></figure>
+        </div>
+        <div id="rxopeomjtieFbsnrttMRxh" class="wolai-block wolai-text">
+            <div><span
+                    class="inline-wrap">要成为局部极小点，只要满足该点在参数空间中的梯度为零。局部极小可以有多个，而全局最小只有一个。全局最小一定是局部极小，但局部最小却不一定是全局最小。显然在很多机器学习算法中，都试图找到目标函数的全局最小。梯度下降法的主要思想就是沿着负梯度方向去搜索最优解，负梯度方向是函数值下降最快的方向，若迭代到某处的梯度为<span
+                        class="jill"></span>0，则表示达到一个局部最小，参数更新停止。因此在现实任务中，通常使用以下策略尽可能地去接近全局最小。</span></div>
+            <ul class="wolai-block">
+                <li id="8NnkWiT43s15JVdiTwSpMK">
+                    <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                        </svg></div><span class="inline-wrap">以多组不同参数值初始化多个神经网络，按标准方法训练，迭代停止后，取其中误差最小的解作为最终参数。</span>
+                </li>
+                <li id="kFzkcwhdAscptar69rGoLR">
+                    <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                        </svg></div><span class="inline-wrap">使用“模拟退火”技术，这里不做具体介绍。</span>
+                </li>
+            </ul>
+        </div>
+        <ul class="wolai-block">
+            <li id="fWv6B1uzeozozZSdmu4dZ">
+                <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                    </svg></div><span class="inline-wrap">使用随机梯度下降，即在计算梯度时加入了随机因素，使得在局部最小时，计算的梯度仍可能不为<span
+                        class="jill"></span>0，从而迭代可以继续进行。</span>
+            </li>
+        </ul>
+        <h2 id="xzQr7rnMD4QcPPuxabbEyY" class="wolai-block"><span class="inline-wrap"><b>5.5 深度学习</b></span></h2>
+        <div id="xt3vyjbGLJPGio5uHa7uRr" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">理论上，参数越多，模型复杂度就越高，容量（capability）就越大，从而能完成更复杂的学习任务。深度学习（deep
+                    learning）正是一种极其复杂而强大的模型。</span></div>
+        </div>
+        <div id="bYPWEraz56TRiATFEhKXgP" class="wolai-block wolai-text">
+            <div><span
+                    class="inline-wrap">怎么增大模型复杂度呢？两个办法，一是增加隐层的数目，二是增加隐层神经元的数目。前者更有效一些，因为它不仅增加了功能神经元的数量，还增加了激活函数嵌套的层数。但是对于多隐层神经网络，经典算法如标准<span
+                        class="jill"></span>BP<span class="jill"></span>算法往往会在误差逆传播时发散（diverge），无法收敛达到稳定状态。</span></div>
+        </div>
+        <div id="pzo369BitYWmY7z5T79xaX" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">那要怎么有效地训练多隐层神经网络呢？一般来说有以下两种方法：</span></div>
+        </div>
+        <ul class="wolai-block">
+            <li id="ivuB5iQACq2SHzyrfYRdjg">
+                <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                    </svg></div><span class="inline-wrap">无监督逐层训练（unsupervised layer-wise
+                    training）：每次训练一层隐节点，把上一层隐节点的输出当作输入来训练，本层隐结点训练好后，输出再作为下一层的输入来训练，这称为预训练（pre-training）。全部预训练完成后，再对整个网络进行微调（fine-tuning）训练。一个典型例子就是深度信念网络（deep
+                    belief network，简称<span
+                        class="jill"></span>DBN）。这种做法其实可以视为把大量的参数进行分组，先找出每组较好的设置，再基于这些局部最优的结果来训练全局最优。</span>
+            </li>
+            <li id="tc4ZPQYtf1mDs9PfAdorPd">
+                <div class="marker"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                    </svg></div><span class="inline-wrap">权共享（weight
+                    sharing）：令同一层神经元使用完全相同的连接权，典型的例子是卷积神经网络（Convolutional Neural Network，简称<span
+                        class="jill"></span>CNN）。这样做可以大大减少需要训练的参数数目。</span>
+            </li>
+        </ul>
+        <div id="t3hvPXnegnVHhgeTyJSAgM" class="wolai-block wolai-center">
+            <figure style="width: 100%"><img src="https://i.loli.net/2018/10/17/5bc72ce28d756.png" /></figure>
+        </div>
+        <div id="pigasCccDiNk2tnTCopmCR" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">深度学习可以理解为一种特征学习（feature learning）或者表示学习（representation learning），无论是<span
+                        class="jill"></span>DBN<span class="jill"></span>还是<span
+                        class="jill"></span>CNN，都是通过多个隐层来把与输出目标联系不大的初始输入转化为与输出目标更加密切的表示，使原来只通过单层映射难以完成的任务变为可能。即通过多层处理，逐渐将初始的“低层”特征表示转化为“高层”特征表示，从而使得最后可以用简单的模型来完成复杂的学习任务。</span>
+            </div>
+        </div>
+        <div id="je8WofJV5Zt8NocaYAbG1H" class="wolai-block wolai-text">
+            <div><span class="inline-wrap">传统任务中，样本的特征需要人类专家来设计，这称为特征工程（feature
+                    engineering）。特征好坏对泛化性能有至关重要的影响。而深度学习为全自动数据分析带来了可能，可以自动产生更好的特征。</span></div>
+        </div>
+    </article>
+    <footer></footer>
+</body>
+
+</html></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">tiaotiaohu</div><div class="author-info__description">跳跳虎的酒吧</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">aside.articels</div><div class="length-num">18</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tiaotiaohu98/"><i class="fab fa-github"></i><span>我的 Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">跳跳虎的个人博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pU8qkt5yYqPECtxutf6nr8"><span class="toc-number">1.</span> <span class="toc-text">5、神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ivViZpWw6yNBnwdFhomSsR"><span class="toc-number">1.1.</span> <span class="toc-text">5.1 神经元模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ivViZpWw6yNBnwdFhomSsR"><span class="toc-number">1.2.</span> <span class="toc-text">5.2 感知机与多层网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bwGS1v66Jv54fsYTStYKDy"><span class="toc-number">1.3.</span> <span class="toc-text">5.3 BP神经网络算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#th7VhFMGWCfjtNBEZn9mAr"><span class="toc-number">1.4.</span> <span class="toc-text">5.4 全局最小与局部最小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xzQr7rnMD4QcPPuxabbEyY"><span class="toc-number">1.5.</span> <span class="toc-text">5.5 深度学习</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(10)--%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" title="第10节_集成学习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第10节_集成学习"/></a><div class="content"><a class="title" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(10)--%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" title="第10节_集成学习">第10节_集成学习</a><time datetime="2022-08-29T07:18:04.072Z" title="发表于 2022-08-29 15:18:04">2022-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(11)--%E8%81%9A%E7%B1%BB/" title="第11节_聚类"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第11节_聚类"/></a><div class="content"><a class="title" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(11)--%E8%81%9A%E7%B1%BB/" title="第11节_聚类">第11节_聚类</a><time datetime="2022-08-29T07:18:04.072Z" title="发表于 2022-08-29 15:18:04">2022-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(14)--%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA/" title="第14节_计算学习理论"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第14节_计算学习理论"/></a><div class="content"><a class="title" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(14)--%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA/" title="第14节_计算学习理论">第14节_计算学习理论</a><time datetime="2022-08-29T07:18:04.072Z" title="发表于 2022-08-29 15:18:04">2022-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(13)--%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E7%A8%80%E7%96%8F%E5%AD%A6%E4%B9%A0/" title="第13节_特征选择与稀疏学习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第13节_特征选择与稀疏学习"/></a><div class="content"><a class="title" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(13)--%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E7%A8%80%E7%96%8F%E5%AD%A6%E4%B9%A0/" title="第13节_特征选择与稀疏学习">第13节_特征选择与稀疏学习</a><time datetime="2022-08-29T07:18:04.072Z" title="发表于 2022-08-29 15:18:04">2022-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(15)--%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" title="第15节_半监督学习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第15节_半监督学习"/></a><div class="content"><a class="title" href="/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(15)--%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" title="第15节_半监督学习">第15节_半监督学习</a><time datetime="2022-08-29T07:18:04.072Z" title="发表于 2022-08-29 15:18:04">2022-08-29</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">机器学习笔记</span><span class="card-category-list-count">17</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%91%A8%E5%BF%97%E5%8D%8E/" style="font-size: 1.15em; color: rgb(65, 16, 66)">机器学习笔记_周志华</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">18</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-04-07T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-08-30T15:54:23.436Z"></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>访客地图</span></div><div class="item-content"><script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=5V2tOKp8qAdRM-i8eu7ETTO9ugt5uKbbG-U7Yj8uMl8"></script></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By tiaotiaohu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">欢迎来到我的博客!!!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%91%A8%E5%BF%97%E5%8D%8E/" style="font-size: 1.15em; color: rgb(44, 110, 145)">机器学习笔记_周志华</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">18</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-04-07T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-08-31T12:41:35.054Z"></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>访客地图</span></div><div class="item-content"><script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=5V2tOKp8qAdRM-i8eu7ETTO9ugt5uKbbG-U7Yj8uMl8"></script></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By tiaotiaohu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">欢迎来到我的博客!!!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
