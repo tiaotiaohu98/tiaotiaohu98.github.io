@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const scrollDownInIndex = () => {
     const $scrollDownEle = document.getElementById('scroll-down')
     $scrollDownEle && $scrollDownEle.addEventListener('click', function () {
-      btf.scrollToDest(document.getElementById('content-inner').offsetTop, 100)
+      btf.scrollToDest(document.getElementById('content-inner').offsetTop, 300)
     })
   }
 
@@ -478,7 +478,6 @@ document.addEventListener('DOMContentLoaded', function () {
       typeof utterancesTheme === 'function' && utterancesTheme()
       typeof changeGiscusTheme === 'function' && changeGiscusTheme()
       typeof FB === 'object' && window.loadFBComment()
-      window.DISQUS && document.getElementById('disqus_thread').children.length && setTimeout(() => window.disqusReset(), 200)
       typeof runMermaid === 'function' && window.runMermaid()
     },
     showOrHideBtn: (e) => { // rightside 點擊設置 按鈕 展開
