@@ -1,10 +1,10 @@
-<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>第3节_假设检验、方差、偏差 | tiaotiaohuの98</title><meta name="author" content="tiaotiaohu"><meta name="copyright" content="tiaotiaohu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在上两篇中，我们介绍了多种常见的评估方法和性能度量标准，这样我们就可以根据数据集以及模型任务的特征，选择出最合适的评估和性能度量方法来计算出学习器的“测试误差“。但由于“测试误差”受到很多因素的影响，例如：算法随机性(例如常见的K-Means)或测试集本身的选择，使得同一模型每次得到的结果不尽相同，同时测试误差是作为泛化误差的近似，并不能代表学习器真实的泛化性能，那如何对单个或多个学习器在不同或相">
+<!DOCTYPE html><html data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>第3节_假设检验、方差、偏差 | tiaotiaohuの98</title><meta name="author" content="tiaotiaohu"><meta name="copyright" content="tiaotiaohu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在上两篇中，我们介绍了多种常见的评估方法和性能度量标准，这样我们就可以根据数据集以及模型任务的特征，选择出最合适的评估和性能度量方法来计算出学习器的“测试误差“。但由于“测试误差”受到很多因素的影响，例如：算法随机性(例如常见的K-Means)或测试集本身的选择，使得同一模型每次得到的结果不尽相同，同时测试误差是作为泛化误差的近似，并不能代表学习器真实的泛化性能，那如何对单个或多个学习器在不同或相">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第3节_假设检验、方差、偏差">
 <meta property="og:url" content="https://tiaotiaohu98.github.io/2022/08/28/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(3)--%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C&%E6%96%B9%E5%B7%AE&%E5%81%8F%E5%B7%AE/index.html">
 <meta property="og:site_name" content="tiaotiaohuの98">
 <meta property="og:description" content="在上两篇中，我们介绍了多种常见的评估方法和性能度量标准，这样我们就可以根据数据集以及模型任务的特征，选择出最合适的评估和性能度量方法来计算出学习器的“测试误差“。但由于“测试误差”受到很多因素的影响，例如：算法随机性(例如常见的K-Means)或测试集本身的选择，使得同一模型每次得到的结果不尽相同，同时测试误差是作为泛化误差的近似，并不能代表学习器真实的泛化性能，那如何对单个或多个学习器在不同或相">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale">
 <meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
 <meta property="article:published_time" content="2022-08-28T14:24:57.908Z">
 <meta property="article:modified_time" content="2022-08-29T09:55:33.973Z">

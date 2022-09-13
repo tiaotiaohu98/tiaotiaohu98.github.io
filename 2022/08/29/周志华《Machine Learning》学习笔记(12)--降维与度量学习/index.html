@@ -1,10 +1,10 @@
-<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>第12节_降维与度量 | tiaotiaohuの98</title><meta name="author" content="tiaotiaohu"><meta name="copyright" content="tiaotiaohu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="上篇主要介绍了几种常用的聚类算法，首先从距离度量与性能评估出发，列举了常见的距离计算公式与聚类评价指标，接着分别讨论了K-Means、LVQ、高斯混合聚类、密度聚类以及层次聚类算法。K-Means与LVQ都试图以类簇中心作为原型指导聚类，其中K-Means通过EM算法不断迭代直至收敛，LVQ使用真实类标辅助聚类；高斯混合聚类采用高斯分布来描述类簇原型；密度聚类则是将一个核心对象所有密度可达的样本形">
+<!DOCTYPE html><html data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>第12节_降维与度量 | tiaotiaohuの98</title><meta name="author" content="tiaotiaohu"><meta name="copyright" content="tiaotiaohu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="上篇主要介绍了几种常用的聚类算法，首先从距离度量与性能评估出发，列举了常见的距离计算公式与聚类评价指标，接着分别讨论了K-Means、LVQ、高斯混合聚类、密度聚类以及层次聚类算法。K-Means与LVQ都试图以类簇中心作为原型指导聚类，其中K-Means通过EM算法不断迭代直至收敛，LVQ使用真实类标辅助聚类；高斯混合聚类采用高斯分布来描述类簇原型；密度聚类则是将一个核心对象所有密度可达的样本形">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第12节_降维与度量">
 <meta property="og:url" content="https://tiaotiaohu98.github.io/2022/08/29/%E5%91%A8%E5%BF%97%E5%8D%8E%E3%80%8AMachine%20Learning%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(12)--%E9%99%8D%E7%BB%B4%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="tiaotiaohuの98">
 <meta property="og:description" content="上篇主要介绍了几种常用的聚类算法，首先从距离度量与性能评估出发，列举了常见的距离计算公式与聚类评价指标，接着分别讨论了K-Means、LVQ、高斯混合聚类、密度聚类以及层次聚类算法。K-Means与LVQ都试图以类簇中心作为原型指导聚类，其中K-Means通过EM算法不断迭代直至收敛，LVQ使用真实类标辅助聚类；高斯混合聚类采用高斯分布来描述类簇原型；密度聚类则是将一个核心对象所有密度可达的样本形">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale">
 <meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
 <meta property="article:published_time" content="2022-08-29T07:18:04.072Z">
 <meta property="article:modified_time" content="2022-08-29T09:57:10.517Z">
